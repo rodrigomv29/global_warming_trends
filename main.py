@@ -1,5 +1,20 @@
 import requests
 from bs4 import BeautifulSoup
+def initializeFiles():
+    ## run touch filename for each filename in list
+    return 0
+def getSurroundingTowns():
+    return ["Hackettstown", "Mount Olive", "Great Meadows", "Allamuchy", 
+    "Mansfield", "Hopatcong", "Easton", "Phillipsburg",
+    "Morristown", "Bethlehem", ""]
+def getHourlyTemp(strlist):
+    sol = list()
+    sol.append(strlist[5])
+    sol.append(strlist[12])
+    sol.append(strlist[19])
+    sol.append(strlist[26])
+    return sol
+
 if __name__ == "__main__":
     ##print("SUCCESS!")
     ##print("Hello! Welcome to the climate trends app!")
@@ -21,8 +36,7 @@ if __name__ == "__main__":
     
     # particular list with required data
     strd = listdiv[5].text
-    print(strd)
-    
+    print(getHourlyTemp(strd.split())) 
     # formatting the string
     pos = strd.find('Wind')
     other_data = strd[pos:]
